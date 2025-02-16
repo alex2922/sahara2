@@ -1,0 +1,44 @@
+.footer{
+    padding-top: 60px;
+
+    .footer-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        .col{
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-direction: column;
+
+            .links{
+                flex-direction: column;
+                display: flex;
+                gap: 10px;
+                
+                a{
+                    &:hover{
+                        color: var(--accent);
+                    }
+                }
+            }
+
+
+
+        }
+
+    }
+
+}
+
+.copyright{
+    padding: 20px 0px;
+    .copyright-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid var(--grey) ;
+        padding: 20px 0px 0px 0px;
+    }
+
+}
