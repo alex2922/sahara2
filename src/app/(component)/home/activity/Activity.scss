@@ -1,6 +1,6 @@
 .activities {
   background: var(--grey);
-  padding: 0px 0px;
+  padding: 100px 0px;
 
   .activities-container {
     display: flex;
@@ -14,7 +14,7 @@
 
     .swiper-box {
       width: 100%;
-      padding:  0px 0px 100px 0px;
+      padding: 0px 0px 100px 0px;
 
       .swiper {
         width: 100%;
@@ -24,11 +24,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          
-          
-          .card {
-          border-radius: 1rem;
 
+          .card {
+            border-radius: 1rem;
             padding: 1rem;
             background: var(--black);
             width: 320px !important;
@@ -41,6 +39,10 @@
               border-radius: 0.5rem;
               background: red;
             }
+            h2 {
+              font-size: 2rem;
+              text-align: left;
+            }
 
             .btns {
               display: flex;
@@ -48,14 +50,12 @@
               flex-direction: column;
               align-items: center;
 
-              .fstbtn{
+              .fstbtn {
                 width: 100%;
                 align-items: center;
                 justify-content: center;
                 text-align: center;
               }
-
-
             }
           }
         }

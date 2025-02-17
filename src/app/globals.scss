@@ -37,6 +37,7 @@ html {
   font-family: "Montserrat", serif;
   font-size: 1rem;
   color: var(--text);
+
 }
 
 body {
@@ -133,4 +134,9 @@ a {
   &:hover{
     transform: scale(1.01) rotate(2deg);
   }
+}
+
+
+.swiper-pagination-bullet{
+  background: var(--accentDark) !important;
 }
