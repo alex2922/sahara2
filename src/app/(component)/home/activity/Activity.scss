@@ -1,6 +1,6 @@
 .activities {
   background: var(--grey);
-  padding: 100px 0px;
+  padding: 100px 10px;
 
   .activities-container {
     display: flex;
@@ -33,28 +33,71 @@
             gap: 1rem;
             display: flex;
             flex-direction: column;
+
             .imgbox {
               width: 100%;
               aspect-ratio: 4/3;
               border-radius: 0.5rem;
-              background: red;
+              // background: url('../../../../../public/gokart.jpg');
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-size: cover;
             }
+
             h2 {
               font-size: 2rem;
               text-align: left;
             }
 
+
             .btns {
               display: flex;
-              // gap: 1.2rem;
-              flex-direction: column;
+              gap: 10px;
               align-items: center;
+              justify-content: space-between;
 
               .fstbtn {
-                width: 100%;
+
                 align-items: center;
                 justify-content: center;
                 text-align: center;
+                cursor: pointer;
+                background: var(--accent);
+                border: 1px solid var(--accent);
+                transition: all 0.4s linear;
+                width: fit-content;
+                padding: 10px;
+                font-size: 16px;
+                border: none;
+                border-radius: 0.25rem;
+                color: white !important;
+                padding: 10px 12px;
+                width: 130px;
+
+                &:hover {
+                  background: var(--accentDark);
+                  border: 1px solid var(--accentDark);
+                }
+              }
+
+              .sndbtn {
+                cursor: pointer;
+                transition: all 0.4s linear;
+                width: fit-content;
+                padding: 10px 12px;
+                font-size: 16px;
+                border: none;
+                border-radius: 0.25rem;
+                color: var(--white);
+                text-align: center;
+                border: 1px solid var(--accent);
+                width: 130px;
+
+
+                &:hover {
+                  background: var(--accentDark);
+                  color: white;
+                }
               }
             }
           }
@@ -63,3 +106,15 @@
     }
   }
 }
+
+@media only screen and (max-width:500px) {
+  .activities {
+    padding: 50px 10px;
+  }
+}
+
+ @media only screen and (min-width:900px) and (max-width:1024px){
+  .activities .activities-container .swiper-box .swiper .swiper-slide .card{
+    width: 355px !important;
+  }
+ }
