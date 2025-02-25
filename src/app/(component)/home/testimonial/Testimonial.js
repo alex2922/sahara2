@@ -1,39 +1,26 @@
 "use client";
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "./Testimonial.scss";
 import { IoMdStar } from "react-icons/io";
-
+import { getTestimonials } from "@/app/(api)/apis";
 
 function Testimonial() {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    getTestimonials().then((data) => {
+      setData(data);
+      setIsLoading(false);
+    });
+  }, []);
 
-  const data = [
-    {
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, eaque reiciendis magnam quia corporis eveniet recusandae.",
-      name: "Customer Name",
-    },
-    {
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, eaque reiciendis magnam quia corporis eveniet recusandae.",
-      name: "Customer Name",
-    },
-    {
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, eaque reiciendis magnam quia corporis eveniet recusandae.",
-      name: "Customer Name",
-    },
-    {
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, eaque reiciendis magnam quia corporis eveniet recusandae.",
-      name: "Customer Name",
-    },
-    {
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, eaque reiciendis magnam quia corporis eveniet recusandae.",
-      name: "Customer Name",
-    },
-  ];
+  console.log(data);
 
   return (
     <div className="t-parent parent">
@@ -47,7 +34,6 @@ function Testimonial() {
             loop={true}
             slidesPerView={3}
             centeredSlides={false}
-
             breakpoints={{
               400: {
                 slidesPerView: 1,
@@ -81,21 +67,23 @@ function Testimonial() {
             modules={[Autoplay, Pagination, Navigation]}
             className="t-Swiper"
           >
-            {data.map((testimonial, index) => (
-              <SwiperSlide key={index} >
-                <div className="t-card">
-                  <div className="t-stars">
-                    <IoMdStar /> <IoMdStar /> <IoMdStar /> <IoMdStar /><IoMdStar />
+            {isLoading ? (
+              <>Loading...</>
+            ) : (
+              data?.map((tdata, index) => (
+                <SwiperSlide key={index}>
+                  <div className="t-card">
+                    <div className="t-stars">
+                     {[...Array(tdata.data.stars)].map(( star, index) => (
+                       <IoMdStar key={index} />
+                     ))}
+                    </div>
+                    <p className="t-para">{tdata.data.feedBack}</p>
+                    <h4>{tdata.data.name}</h4>
                   </div>
-                  <p className='t-para'>
-                    {testimonial.text}
-                  </p>
-                  <h4>  {testimonial.name}</h4>
-                </div>
-              </SwiperSlide>
-
-            ))}
-
+                </SwiperSlide>
+              ))
+            )}
           </Swiper>
         </div>
       </div>
