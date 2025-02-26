@@ -1,5 +1,82 @@
 .faq {
-    height: 600px;
-    background: var(--grey);
+  background: var(--grey);
+  padding: 50px 10px 150px 10px;
+  height: auto;
+
+  .faq-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      line-height: 100%;
+    }
+
+    .faq-box-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 50%;
+      .faq-box {
+        display: flex;
+        flex-direction: column;
+     
+
+        .accordian-ques {
+          display: flex;
+          justify-content: space-between;
+          padding: 10px 0px;
+          border-bottom: 1px solid grey;
+          cursor: pointer;
+
+          .accordian-p {
+            color: white !important;
+          }
+
+          svg {
+            fill: white;
+          }
+
+          &.active {
+            border-bottom: none;
+          }
+        }
+
+        .accordian-ans {
+          padding: 10px 0px;
+          border-bottom: 1px solid grey; // Underline below the answer
+          color: gray;
+        }
+      }
+    }
   }
-  
+}
+
+@media only screen and (max-width:1000px) {
+  .faq {
+    .faq-container {
+
+      .faq-box-container {
+        width: 80%;
+
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:500px) {
+  .faq {
+    .faq-container {
+
+      .faq-box-container {
+        width: 95%;
+
+      }
+    }
+  }
+}
