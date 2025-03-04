@@ -8,7 +8,7 @@ const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleAccordion = (index) => {
-    setActiveIndex(index); // Set the active index to the clicked one
+    setActiveIndex(index); 
   };
 
   const accordianData = [
