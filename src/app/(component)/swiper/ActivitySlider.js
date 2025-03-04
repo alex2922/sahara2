@@ -81,6 +81,7 @@ function ActivitySlider() {
         loop={true}
        
         breakpoints={{
+<<<<<<< Updated upstream
           
           280: {
             slidesPerView: 1,
@@ -90,6 +91,11 @@ function ActivitySlider() {
           300: {
             slidesPerView: 1,
             spaceBetween: 10,
+=======
+          300: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+>>>>>>> Stashed changes
           },
           650: {
             slidesPerView: 2,

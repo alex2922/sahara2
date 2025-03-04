@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import "./FAQ.scss";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   
-  const [data, setData] = useState([
+ 
   
   const [data, setData] = useState([
     {
@@ -28,10 +28,10 @@ const FAQ = () => {
     },
     {
       question: "Four orem ipsum dolor sit amet1",
-      asnwer:
-        "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
+      asnwer: "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
     },
   ]);
+
 
   return (
     <>
@@ -77,7 +77,6 @@ const FAQ = () => {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
       </div>
