@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import "./FAQ.scss";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,14 +14,20 @@ const FAQ = () => {
     {
       question: "Lorem ipsum dolor sit amet1",
       asnwer:
+      question: "Lorem ipsum dolor sit amet1",
+      asnwer:
         "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
     },
     {
       question: "2Lorem ipsum dolor sit amet1",
       asnwer:
+      question: "2Lorem ipsum dolor sit amet1",
+      asnwer:
         "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
     },
     {
+      question: "Three Lorem ipsum dolor sit amet1",
+      asnwer:
       question: "Three Lorem ipsum dolor sit amet1",
       asnwer:
         "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
