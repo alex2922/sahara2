@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body className={isDarkMode ? "" : "light"} data-lenis>
         <Header />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
