@@ -42,6 +42,7 @@ const FAQ = () => {
             Plan Your <span>Visit</span>
           </h2>
           <div className="faq-box-container">
+            
 
             
 
