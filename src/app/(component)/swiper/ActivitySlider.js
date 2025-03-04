@@ -79,37 +79,16 @@ function ActivitySlider() {
         slidesPerView={3}
         centeredSlides={false}
         loop={true}
-        // breakpoints={{
-        //   400: {
-        //     slidesPerView: 1,
-        //     spaceBetween: 20,
-        //   },
-        //   768: {
-        //     slidesPerView: 2,
-        //     spaceBetween: 10,
-        //   },
-        //   1024: {
-        //     slidesPerView: 3,
-        //     spaceBetween: 10,
-        //   },
-        //   1200: {
-        //     slidesPerView: 3,
-        //     spaceBetween: 0,
-        //   },
-        //   1400: {
-        //     slidesPerView: 3,
-        //     spaceBetween: 0,
-        //   },
-        // }}
-
+       
         breakpoints={{
+          
           280: {
             slidesPerView: 1,
             spaceBetween: 20,
           },
           300: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
           650: {
             slidesPerView: 2,

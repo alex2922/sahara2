@@ -1,8 +1,7 @@
 .faq {
   background: var(--grey);
-  padding: 50px 10px 150px 10px;
+  padding: 50px 10px 200px 10px;
   height: auto;
-
   .faq-container {
     display: flex;
     flex-direction: column;
@@ -20,62 +19,64 @@
     .faq-box-container {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      width: 50%;
+      gap: 30px;
+      width: 100%;
+      max-width: 800px;
+
       .faq-box {
         display: flex;
         flex-direction: column;
-     
+        gap: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.185);
+        transition: var(--trans);
+        cursor: pointer;
 
-        .accordian-ques {
+        .faq-ques {
           display: flex;
           justify-content: space-between;
-          padding: 10px 0px;
-          border-bottom: 1px solid grey;
-          cursor: pointer;
+          align-items: center;
+          font-size: 1.2rem;
+          font-weight: 500;
+          transition: var(--trans);
 
-          .accordian-p {
-            color: white !important;
+          h3{
+            transition: var(--trans);
           }
 
-          svg {
-            fill: white;
-          }
+          span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(0deg);
+            transition: var(--trans);
 
-          &.active {
-            border-bottom: none;
+            svg {
+              scale: 1.5;
+            }
           }
         }
 
-        .accordian-ans {
-          padding: 10px 0px;
-          border-bottom: 1px solid grey; // Underline below the answer
-          color: gray;
+        .faq-ans {
+          font-size: 0rem;
+          transition: all 0.2s ease-in-out;
+          font-weight: 400;
         }
-      }
-    }
-  }
-}
 
-@media only screen and (max-width:1000px) {
-  .faq {
-    .faq-container {
+        &.active {
+          .faq-ques {
+           h3{
+            color: var(--accent);
+           }
+            span {
+              transform: rotate(180deg);
+            }
+          }
 
-      .faq-box-container {
-        width: 80%;
-
-      }
-    }
-  }
-}
-
-@media only screen and (max-width:500px) {
-  .faq {
-    .faq-container {
-
-      .faq-box-container {
-        width: 95%;
-
+          .faq-ans {
+            font-size: 1rem !important;
+          }
+        }
       }
     }
   }

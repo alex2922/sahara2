@@ -1,16 +1,42 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import "./activity.scss";
 import BlackBorder from "../(component)/border/BlackBorder";
 import GreyBorder from "../(component)/border/GreyBorder";
 import { useSearchParams } from "next/navigation";
-
+import { IoIosArrowDown } from "react-icons/io";
+import "../(component)/home/faq/FAQ.scss"
 const page = () => {
 
 
   const [searchParams] = useSearchParams();
-  const activityId = searchParams.get("ActivityId");
+  // const activityId = searchParams.get("ActivityId");
+  const [activeIndex, setActiveIndex] = useState(0);
+
+
+  const [data, setData] = useState([
+    {
+      question: "Lorem ipsum dolor sit amet1",
+      asnwer:
+        "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
+    },
+    {
+      question: "2Lorem ipsum dolor sit amet1",
+      asnwer:
+        "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
+    },
+    {
+      question: "Three Lorem ipsum dolor sit amet1",
+      asnwer:
+        "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
+    },
+    {
+      question: "Four orem ipsum dolor sit amet1",
+      asnwer:
+        "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
+    },
+  ]);
 
 
   function keyValue(key, value) {
@@ -44,9 +70,9 @@ const page = () => {
             {keyValue("Contact", "1234567890")}
             {keyValue("Contact", "1234567890")}
 
-              <a href="#" className="btn">
-                Book Now
-              </a>
+            <a href="#" className="btn">
+              Book Now
+            </a>
 
           </div>
 
@@ -59,32 +85,32 @@ const page = () => {
         <div className="activityDescription-container container">
 
 
-<div className="faq parent">
-        <div className="container faq-container">
-          <h2>
-            Plan Your <span>Visit</span>
-          </h2>
-         <div className="faq-box-container">
-         {accordianData.map((item, index) => (
-            <div className="faq-box" key={index}>
-              <div
-                className={`accordian-ques ${activeIndex === index ? "active" : ""}`}
-                onClick={() => toggleAccordion(index)}
-              >
-                <p className="accordian-p">{item.title}</p>
-                <span>
-                  {activeIndex === index ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                </span>
+          <div className="faq parent">
+            <div className="container faq-container">
+              <h2>
+                Plan Your <span>Visit</span>
+              </h2>
+              <div className="faq-box-container">
+                <div className="faq-box-container">
+                  {data.map((item, index) => (
+                    <div
+                      className={`faq-box ${activeIndex === index ? "active" : ""}`}
+                      key={index}
+                      onClick={() => setActiveIndex(index)}
+                    >
+                      <div className="faq-ques">
+                        <h3> {item.question} </h3>
+                        <span>
+                          <IoIosArrowDown />
+                        </span>
+                      </div>
+                      <div className="faq-ans">{item.asnwer}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-
-              {activeIndex === index && (
-                <p className="accordian-ans">{item.content}</p>
-              )}
             </div>
-          ))}
-         </div>
-        </div>
-      </div>
+          </div>
 
 
 

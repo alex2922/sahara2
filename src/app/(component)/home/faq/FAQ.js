@@ -2,37 +2,34 @@
 
 import React, { useState } from "react";
 import "./FAQ.scss";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const toggleAccordion = (index) => {
-    setActiveIndex(index); 
-  };
-
-  const accordianData = [
+  
+  const [data, setData] = useState([
     {
-      title: "Lorem ipsum dolor sit amet1",
-      content:
+      question: "Lorem ipsum dolor sit amet1",
+      asnwer:
         "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
     },
     {
-      title: "2Lorem ipsum dolor sit amet1",
-      content:
+      question: "2Lorem ipsum dolor sit amet1",
+      asnwer:
         "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
     },
     {
-      title: "Three Lorem ipsum dolor sit amet1",
-      content:
+      question: "Three Lorem ipsum dolor sit amet1",
+      asnwer:
         "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
     },
     {
-      title: "Four orem ipsum dolor sit amet1",
-      content:
+      question: "Four orem ipsum dolor sit amet1",
+      asnwer:
         "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
     },
-  ];
+  ]);
 
   return (
     <>
@@ -42,6 +39,7 @@ const FAQ = () => {
             Plan Your <span>Visit</span>
           </h2>
           <div className="faq-box-container">
+<<<<<<< Updated upstream
             {accordianData.map((item, index) => (
               <div className="faq-box" key={index}>
                 <div
@@ -59,6 +57,25 @@ const FAQ = () => {
                 )}
               </div>
             ))}
+=======
+            <div className="faq-box-container">
+              {data.map((item, index) => (
+                <div
+                  className={`faq-box ${activeIndex === index ? "active" : ""}`}
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                >
+                  <div className="faq-ques">
+                    <h3> {item.question} </h3>
+                    <span>
+                      <IoIosArrowDown />
+                    </span>
+                  </div>
+                  <div className="faq-ans">{item.asnwer}</div>
+                </div>
+              ))}
+            </div>
+>>>>>>> Stashed changes
           </div>
         </div>
       </div>
