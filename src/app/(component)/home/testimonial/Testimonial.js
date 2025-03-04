@@ -35,6 +35,10 @@ function Testimonial() {
             slidesPerView={3}
             centeredSlides={false}
             breakpoints={{
+              300: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
               400: {
                 slidesPerView: 1,
                 spaceBetween: 20,

@@ -41,25 +41,25 @@ const FAQ = () => {
           <h2>
             Plan Your <span>Visit</span>
           </h2>
-         <div className="faq-box-container">
-         {accordianData.map((item, index) => (
-            <div className="faq-box" key={index}>
-              <div
-                className={`accordian-ques ${activeIndex === index ? "active" : ""}`}
-                onClick={() => toggleAccordion(index)}
-              >
-                <p className="accordian-p">{item.title}</p>
-                <span>
-                  {activeIndex === index ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                </span>
-              </div>
+          <div className="faq-box-container">
+            {accordianData.map((item, index) => (
+              <div className="faq-box" key={index}>
+                <div
+                  className={`accordian-ques ${activeIndex === index ? "active" : ""}`}
+                  onClick={() => toggleAccordion(index)}
+                >
+                  <p className="accordian-p">{item.title}</p>
+                  <span>
+                    {activeIndex === index ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                  </span>
+                </div>
 
-              {activeIndex === index && (
-                <p className="accordian-ans">{item.content}</p>
-              )}
-            </div>
-          ))}
-         </div>
+                {activeIndex === index && (
+                  <p className="accordian-ans">{item.content}</p>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>

@@ -103,7 +103,11 @@ function ActivitySlider() {
         // }}
 
         breakpoints={{
-          400: {
+          280: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          300: {
             slidesPerView: 1,
             spaceBetween: 20,
           },
