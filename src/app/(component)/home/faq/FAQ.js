@@ -40,6 +40,7 @@ const FAQ = () => {
           </h2>
           <div className="faq-box-container">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             {accordianData.map((item, index) => (
               <div className="faq-box" key={index}>
                 <div
@@ -58,6 +59,8 @@ const FAQ = () => {
               </div>
             ))}
 =======
+=======
+>>>>>>> Stashed changes
             <div className="faq-box-container">
               {data.map((item, index) => (
                 <div
@@ -75,6 +78,9 @@ const FAQ = () => {
                 </div>
               ))}
             </div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
           </div>
         </div>

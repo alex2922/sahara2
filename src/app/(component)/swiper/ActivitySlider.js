@@ -84,7 +84,7 @@ function ActivitySlider() {
           
           280: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
           300: {
             slidesPerView: 1,
