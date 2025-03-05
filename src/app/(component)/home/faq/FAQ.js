@@ -1,53 +1,39 @@
 "use client";
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FAQ.scss";
 import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
+import { getFaqByPage } from "@/app/(api)/apis";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [testimonialData, setTestimonialData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  
- 
-  
-  const [data, setData] = useState([
-    {
-      question: "Lorem ipsum dolor sit amet1",   
-      asnwer:
-        "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
-    },
-    {
-      question: "2Lorem ipsum dolor sit amet1",
-      asnwer:
-        "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
-    },
-    {
-      question: "Three Lorem ipsum dolor sit amet1",
-      asnwer:
-        "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
-    },
-    {
-      question: "Four orem ipsum dolor sit amet1",
-      asnwer: "lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nisi praesentium ipsam!",
-    },
-  ]);
+  useEffect(() => {
+    setIsLoading(true);
+    getFaqByPage("home").then((data) => {
+      setTestimonialData(data.data);
+
+      setIsLoading(false);
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log(testimonialData);
+  }, [testimonialData]);
+
 
 
   return (
     <>
-      <div className="faq parent">
+      {testimonialData && <div className="faq parent">
         <div className="container faq-container">
           <h2>
             Plan Your <span>Visit</span>
           </h2>
           <div className="faq-box-container">
-            
-
-            
-
             <div className="faq-box-container">
-              {data.map((item, index) => (
+              {testimonialData.map((item, index) => (
                 <div
                   className={`faq-box ${activeIndex === index ? "active" : ""}`}
                   key={index}
@@ -59,13 +45,17 @@ const FAQ = () => {
                       <IoIosArrowDown />
                     </span>
                   </div>
-                  <div className="faq-ans">{item.asnwer}</div>
+                  <div className="faq-ans">
+
+                    {item.answer}
+                
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </div>
+      </div>}
     </>
   );
 };

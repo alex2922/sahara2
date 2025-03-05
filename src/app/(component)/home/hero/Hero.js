@@ -1,28 +1,47 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import "./Hero.scss";
 import Link from "next/link";
-
+import { getHomepage } from "@/app/(api)/apis";
 
 const Hero = () => {
+  const [heroData, setHeroData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getHomepage().then((data) => {
+      setHeroData(data.data);
+      setIsLoading(false);
+    });
+  }, []);
+
+
+
   return (
-    <div className="hero parent">
+   <>
+   
+   {heroData && <div className="hero parent">
       <div className="video-bg">
-        <video src="/bg.mp4" autoPlay loop muted playsInline></video>
+        <video className="desktop" src={heroData.viedo.desktop} autoPlay loop muted playsInline ></video>
+        <video className="tab" src={heroData.viedo.tab} autoPlay loop muted playsInline ></video>
+        <video className="mob" src={heroData.viedo.mob} autoPlay loop muted playsInline ></video>
       </div>
 
       <div className="hero-container container">
-        <h1 data-aos="fade-up" >
-          <span>Sahara</span> Amusement
-        </h1>
+        <h1 data-aos="fade-up">{heroData.title}</h1>
 
-        <Link data-aos="fade-up" data-aos-delay="200"  className="btn" href="/contact">
-          Contact Us
+        <Link
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="btn"
+          href={heroData.buttonLink}
+        >
+          {heroData.buttonText}
         </Link>
       </div>
-
-
-      
-    </div>
+    </div>}
+   </>
   );
 };
 

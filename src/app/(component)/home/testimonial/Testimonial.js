@@ -20,8 +20,6 @@ function Testimonial() {
     });
   }, []);
 
-  console.log(data);
-
   return (
     <div className="t-parent parent">
       <div className="t-container container">
