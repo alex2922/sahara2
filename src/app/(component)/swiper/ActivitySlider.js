@@ -21,10 +21,10 @@ function ActivityCard(props) {
       </h2>
       <p>{props.desc}</p>
       <div className="btns">
-        <a href="#" className=" sndbtn">
+        <a href={props.pagelink} className=" sndbtn">
           Learn More
         </a>
-        <a href="#" className=" fstbtn">
+        <a href={props.booklink} className=" fstbtn">
           Book Now
         </a>
       </div>
@@ -92,6 +92,9 @@ function ActivitySlider() {
                 title={card.data.title}
                 desc={card.data.description.slice(0,50)}
                 image={card.data.image}
+                pagelink={`/activity?activityid=${card.data.title}`}
+                booklink={`/contact?activityid=${card.data.title}`}
+
                 
               />
             </SwiperSlide>

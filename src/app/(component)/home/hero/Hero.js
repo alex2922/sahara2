@@ -29,7 +29,11 @@ const Hero = () => {
       </div>
 
       <div className="hero-container container">
-        <h1 data-aos="fade-up">{heroData.title}</h1>
+        <h1 data-aos="fade-up">{heroData.title.slice(0, 50)}</h1>
+
+        <p data-aos="fade-up" data-aos-delay="100">
+          {heroData.description}
+        </p>
 
         <Link
           data-aos="fade-up"
@@ -38,8 +42,7 @@ const Hero = () => {
           href={heroData.buttonLink}
         >
           {heroData.buttonText}
-        </Link>
-      </div>
+        </Link> </div>
     </div>}
    </>
   );
