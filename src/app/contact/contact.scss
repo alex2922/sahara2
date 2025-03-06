@@ -1,8 +1,47 @@
-.contact{
+.contact1{
     padding: 0px 20px;
     background: var(--grey);
+    height: 500px;
 
-    .contact-container{
+    .contact-container1{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+
+        h1{
+            width: 100% !important;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        p{
+            width: 100% !important;
+            text-align: center;
+        }
+    }
+
+
+
+}
+.contact2{
+    padding: 0px 20px;
+    min-height: 500px;
+
+    .contact-container2{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+
+        h1{
+            width: 100% !important;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
         p{
             width: 100% !important;
             text-align: center;
