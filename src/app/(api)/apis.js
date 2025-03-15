@@ -42,7 +42,7 @@ export const getAllActivities = async () => {
 
 export const getFaqByPage = async (pageid) => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/faq/getByPage/{page}?page=${pageid}` ,{ method : "GET"});
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/faq/getByPage/${pageid}` ,{ method : "GET"});
         const jsonData = await response.json();
         return jsonData;
     } catch (error) {
