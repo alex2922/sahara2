@@ -18,7 +18,7 @@ import axios from "axios";
 import ThemeStore from "../(component)/store/Theme";
 import { toast, ToastContainer } from "react-toastify";
 
-const page = () => {
+const Page = () => {
   const searchParams = useSearchParams(); 
   const id = searchParams?.get("activityid") || ""; 
   const {isDarkMode} = ThemeStore();
@@ -262,4 +262,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
