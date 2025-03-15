@@ -9,8 +9,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import "../(component)/home/faq/FAQ.scss";
 import { getActivityByTitle, getFaqByPage } from "../(api)/apis";
 import Link from "next/link";
+import ThemeStore from "../(component)/store/Theme";
+
 
 const ActivityPage = () => {
+  const { isDarkMode } = ThemeStore();
+
   const searchParams = useSearchParams();
   const [activityId, setActivityId] = useState(null);
   const [activityData, setActivityData] = useState(null);
@@ -48,7 +52,8 @@ const ActivityPage = () => {
           >
             <h1>{activityData.title}</h1>
           </div>
-          <div
+        <div id="animatedsection" className={isDarkMode ? "" : "light"}>
+        <div
             className={id === "paintball" ? "parent activitymain paintBallBg" : "parent activitymain"}
           >
             <div className="container activitymain-container">
@@ -77,6 +82,7 @@ const ActivityPage = () => {
               </div>
             </div>
           </div>
+        </div>
           <GreyBorder margin={"-100px"} />
           <div className="activityDescription parent">
             <div className="activityDescription-container container">

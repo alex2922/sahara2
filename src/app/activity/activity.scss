@@ -8,7 +8,6 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  
 
   h1 {
     font-size: 100px;
@@ -33,20 +32,23 @@
   min-height: 500px;
   width: 100%;
   margin: 100px 0px;
-background: url("../../../public/tyre_bike.gif");
+  background: url("../../../public/tyre_bike.gif");
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
 
-
-&.paintBallBg{
-  background: url("../../../public/ball.gif");
-}
-
-
+  &.paintBallBg {
+    background: url("../../../public/ball.gif");
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+  }
 
   .activitymain-container {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap:30px;
+    gap: 30px;
 
     .left {
       width: 50%;
@@ -65,98 +67,112 @@ background: url("../../../public/tyre_bike.gif");
       }
     }
 
-    .right{
-        width: 50%;
-        height: 200%;
+    .right {
+      width: 50%;
+      height: 200%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px 0px;
+
+      h2 {
+        font-size: clamp(1.6rem, 5vw, 2rem);
+      }
+
+      .key-value {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px 0px;
-
-        h2 {
-          font-size: clamp(1.6rem, 5vw, 2rem);
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid var(--grey);
+        padding: 5px;
+        gap: 0px;
+        &:last-child {
+          border-bottom: none;
         }
 
-        .key-value{
-            display: flex;
-            align-items: center;
-            width: 100%;
-            border-bottom: 1px solid var(--grey);
-            padding: 5px;
-            gap: 0px;
-            &:last-child{
-                border-bottom: none;
-            }
-
-            &:hover{
-                background: var(--grey);
-            }
-
-            .key{
-                font-weight: bold;
-                width: 150px;
-               
-            }
-            .value{
-                width: 100%;
-                color: var(--accent);
-            }
+        &:hover {
+          background: var(--grey);
         }
+
+        .key {
+          font-weight: bold;
+          width: 150px;
+        }
+        .value {
+          width: 100%;
+          color: var(--accent);
+        }
+      }
     }
   }
 }
 
-
-.activityDescription{
+.activityDescription {
   min-height: 500px;
   background: var(--grey);
   margin: 0px100px 0px;
-
-
 }
 
-@media only screen and (max-width:800px){
-
-
-  .page-top{
-    h1{
+@media only screen and (max-width: 800px) {
+  .page-top {
+    h1 {
       font-size: 80px;
     }
   }
-  .activitymain{
+  .activitymain {
     .activitymain-container {
       flex-direction: column;
       padding: 0px 20px;
 
-      .left{
+      .left {
         width: 100%;
         aspect-ratio: 4/3;
       }
-      .right{
+      .right {
         width: 100%;
 
-        h2{
+        h2 {
           width: 100%;
-          text-align: center
+          text-align: center;
         }
-      
-        .button_class{
+
+        .button_class {
           width: 100%;
           display: flex;
-          place-content: center
+          place-content: center;
         }
-      };
+      }
     }
   }
-
 }
 
-@media only screen and (max-width:500px){
-  .page-top{
-    h1{
+@media only screen and (max-width: 500px) {
+  .page-top {
+    h1 {
       font-size: 50px;
+    }
+  }
+}
+
+#animatedsection {
+  &.light {
+    .activitymain {
+      min-height: 500px;
+      width: 100%;
+      margin: 100px 0px;
+      background: url("../../../public/White\ Tires.gif") !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      background-size: contain !important;
+
+      &.paintBallBg {
+        background: url("../../../public/White\ Paint.gif") !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+      }
     }
   }
 }
