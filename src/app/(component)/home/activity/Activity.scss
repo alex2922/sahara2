@@ -110,6 +110,12 @@
 @media only screen and (max-width:500px) {
   .activities {
     padding: 50px 10px;
+
+    .activities-container{
+      h2{
+        font-size: 2rem;
+      }
+    }
   }
 }
 
