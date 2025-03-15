@@ -8,6 +8,7 @@ import GreyBorder from "../(component)/border/GreyBorder";
 import { IoIosArrowDown } from "react-icons/io";
 import "../(component)/home/faq/FAQ.scss";
 import { getActivityByTitle, getFaqByPage } from "../(api)/apis";
+import Link from "next/link";
 
 const ActivityPage = () => {
   const searchParams = useSearchParams();
@@ -69,7 +70,7 @@ const ActivityPage = () => {
                     </div>
                   ))}
                 <div className="button_class">
-                  <a href="#" className="btn">
+                  <a href={`/contact?activityid=${activityData.title}`} className="btn">
                     Book Now
                   </a>
                 </div>
