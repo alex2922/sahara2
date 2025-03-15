@@ -33,7 +33,12 @@
   min-height: 500px;
   width: 100%;
   margin: 100px 0px;
-background: url("../../../public/ball.gif");
+background: url("../../../public/tyre_bike.gif");
+
+
+&.paintBallBg{
+  background: url("../../../public/ball.gif");
+}
 
 
 
@@ -45,13 +50,14 @@ background: url("../../../public/ball.gif");
 
     .left {
       width: 50%;
-      height: 100%;
+      height: auto;
       display: flex;
       align-items: center;
       justify-content: center;
       .img-box {
         width: 90%;
-        aspect-ratio: 4/3;
+        // aspect-ratio: 4/3;
+        height: 100%;
         background: url("https://odysseymagazine.com/wp-content/uploads/2024/05/1_morning-desert-safari-in-dubai.jpg")
           center center no-repeat;
         background-size: cover;
@@ -109,4 +115,38 @@ background: url("../../../public/ball.gif");
   margin: 0px100px 0px;
 
 
+}
+
+@media only screen and (max-width:800px){
+
+
+  .page-top{
+    h1{
+      font-size: 80px;
+    }
+  }
+  .activitymain{
+    .activitymain-container {
+      flex-direction: column;
+      padding: 0px 20px;
+
+      .left{
+        width: 100%;
+        aspect-ratio: 4/3;
+      }
+      .right{
+        width: 100%;
+      
+      };
+    }
+  }
+
+}
+
+@media only screen and (max-width:500px){
+  .page-top{
+    h1{
+      font-size: 50px;
+    }
+  }
 }

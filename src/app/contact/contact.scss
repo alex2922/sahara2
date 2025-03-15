@@ -172,6 +172,14 @@
 }
 
 @media only screen and (max-width: 900px) {
+
+  .contact1{
+    .contact-container1{
+      h1{
+        font-size: 2rem;
+      }
+    }
+  }
   .contact2 {
     padding: 0px 20px 33px 20px;
     height: fit-content;
@@ -184,6 +192,10 @@
           justify-content: center !important;
           h2 ,p.para{
             text-align: center !important;
+          }
+
+          h2{
+            font-size: 1.8rem;
           }
 
           .contact-details {

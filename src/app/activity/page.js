@@ -9,16 +9,16 @@ import { IoIosArrowDown } from "react-icons/io";
 import "../(component)/home/faq/FAQ.scss";
 import { getActivityByTitle, getFaqByPage } from "../(api)/apis";
 
-const page = () => {
+
+const Page = () => {
   const searchParams = useSearchParams();
   const [activityId, setActivityId] = useState(null);
   const [activityData, setActivityData] = useState(null);
   const [testimonialData, setTestimonialData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const id = searchParams.get("activityid");
   useEffect(() => {
-    const id = searchParams.get("activityid");
     setActivityId(id);
 
     if (!id) return;
@@ -28,16 +28,11 @@ const page = () => {
       setActivityData(data.data);
     });
 
-
     getFaqByPage(id).then((data) => {
       setTestimonialData(data.data);
 
       setIsLoading(false);
     });
-
-
-
-
 
     setIsLoading(false);
   }, [searchParams]);
@@ -45,7 +40,6 @@ const page = () => {
   useEffect(() => {
     console.log("activityData: ", activityData);
   }, [activityData]);
-
 
   function keyValue(key, value) {
     return (
@@ -58,27 +52,40 @@ const page = () => {
 
   return (
     <>
-      {activityData && testimonialData &&
+      {activityData && testimonialData && (
         <>
-          <div className="page-top parent"  style={{ backgroundImage: `url(${activityData.coverImage})` }}>
+          <div
+            className="page-top parent"
+            style={{ backgroundImage: `url(${activityData.coverImage})` }}
+          >
             <h1>{activityData.title}</h1>
           </div>
-          <div className="parent activitymain">
+          <div
+            className={id === "paintball" ? "parent activitymain paintBallBg" : "parent activitymain"}
+            
+          >
             <div className="container activitymain-container">
               <div className="left">
-                <div className="img-box imghover" style={{ backgroundImage: `url(${activityData.image})` }}></div>
+                <div
+                  className="img-box imghover"
+                  style={{ backgroundImage: `url(${activityData.image})` }}
+                ></div>
               </div>
 
               <div className="right">
-                <h2 style={{textTransform: "capitalize"}}>{activityData.title}</h2>
+                <h2 style={{ textTransform: "capitalize" }}>
+                  {activityData.title}
+                </h2>
 
                 {activityData.additionalInfo &&
-                  Object.entries(activityData.additionalInfo).map(([key, value]) => (
-                    <div className="key-value" key={key}>
-                      <div className="key">{key}</div>
-                      <div className="value">{value}</div>
-                    </div>
-                  ))}
+                  Object.entries(activityData.additionalInfo).map(
+                    ([key, value]) => (
+                      <div className="key-value" key={key}>
+                        <div className="key">{key}</div>
+                        <div className="value">{value}</div>
+                      </div>
+                    )
+                  )}
                 {/* {keyValue("Duration", "1hr")}
                 
                 {keyValue("Price", "1000")}
@@ -86,9 +93,11 @@ const page = () => {
                 {keyValue("Contact", "1234567890")}
                 {keyValue("Contact", "1234567890")} */}
 
-                <a href="#" className="btn">
+               <div class="button_class">
+               <a href="#" className="btn">
                   Book Now
                 </a>
+               </div>
               </div>
             </div>
           </div>
@@ -104,8 +113,9 @@ const page = () => {
                     <div className="faq-box-container">
                       {testimonialData.map((item, index) => (
                         <div
-                          className={`faq-box ${activeIndex === index ? "active" : ""
-                            }`}
+                          className={`faq-box ${
+                            activeIndex === index ? "active" : ""
+                          }`}
                           key={index}
                           onClick={() => setActiveIndex(index)}
                         >
@@ -125,11 +135,10 @@ const page = () => {
             </div>
           </div>
           <BlackBorder flip={true} margin={"-96px"} />
-
         </>
-      }
+      )}
     </>
   );
 };
 
-export default page;
+export default Page;
