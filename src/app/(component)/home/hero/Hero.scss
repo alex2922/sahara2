@@ -63,6 +63,12 @@
 }
 @media only screen and (max-width: 600px) {
   .hero {
+
+    .hero-container {
+      h1 {
+        max-width: 15ch !important;
+      }
+    }
     .video-bg {
       .desktop {
         display: none;
