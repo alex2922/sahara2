@@ -22,10 +22,14 @@ export default function Home() {
       </div>
       <BlackBorder flip={true} margin={"-96px"} />
 
-      <Testimonial />
+ <div id="testimonial">
+ <Testimonial />
+ </div>
       <GreyBorder margin={"-100px"} />
 
-      <FAQ />
+   <div id="faq">
+   <FAQ />
+   </div>
       <BlackBorder flip={true} margin={"-96px"} />
     </>
   );

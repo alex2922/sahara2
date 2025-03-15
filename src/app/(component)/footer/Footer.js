@@ -12,10 +12,10 @@ const Footer = () => {
 
             <div className="links">
               <Link href="/">Home</Link>
-              <Link href="/">About Us</Link>
-              <Link href="/">Activities</Link>
-              <Link href="/">Contact Us</Link>
-              <Link href="/">FAQs</Link>
+              <Link href="/#about">About Us</Link>
+              <Link href="/#activities">Activities</Link>
+              <Link href="/contact">Contact Us</Link>
+              <Link href="/#faq">FAQs</Link>
             </div>
           </div>
 
@@ -48,8 +48,8 @@ const Footer = () => {
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet,
                 earum.
               </Link>
-              <Link href="/">test@gmail.com</Link>
-              <Link href="/">2834908230948</Link>
+              <a href="mailto:test@gmail.com" target="_blank">test@gmail.com</a>
+              <a href="tel:+971123456789">123456789</a>
             </div>
           </div>
         </div>
