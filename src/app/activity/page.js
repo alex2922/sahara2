@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import "./activity.scss";
 import BlackBorder from "../(component)/border/BlackBorder";
@@ -9,18 +9,18 @@ import { IoIosArrowDown } from "react-icons/io";
 import "../(component)/home/faq/FAQ.scss";
 import { getActivityByTitle, getFaqByPage } from "../(api)/apis";
 
-
-const Page = () => {
+const ActivityPage = () => {
   const searchParams = useSearchParams();
   const [activityId, setActivityId] = useState(null);
   const [activityData, setActivityData] = useState(null);
   const [testimonialData, setTestimonialData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
+
   const id = searchParams.get("activityid");
+
   useEffect(() => {
     setActivityId(id);
-
     if (!id) return;
 
     setIsLoading(true);
@@ -30,25 +30,12 @@ const Page = () => {
 
     getFaqByPage(id).then((data) => {
       setTestimonialData(data.data);
-
       setIsLoading(false);
     });
 
-    setIsLoading(false);
   }, [searchParams]);
 
-  useEffect(() => {
-    console.log("activityData: ", activityData);
-  }, [activityData]);
-
-  function keyValue(key, value) {
-    return (
-      <div className="key-value">
-        <div className="key">{key}</div>
-        <div className="value">{value}</div>
-      </div>
-    );
-  }
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <>
@@ -62,7 +49,6 @@ const Page = () => {
           </div>
           <div
             className={id === "paintball" ? "parent activitymain paintBallBg" : "parent activitymain"}
-            
           >
             <div className="container activitymain-container">
               <div className="left">
@@ -71,33 +57,22 @@ const Page = () => {
                   style={{ backgroundImage: `url(${activityData.image})` }}
                 ></div>
               </div>
-
               <div className="right">
                 <h2 style={{ textTransform: "capitalize" }}>
                   {activityData.title}
                 </h2>
-
                 {activityData.additionalInfo &&
-                  Object.entries(activityData.additionalInfo).map(
-                    ([key, value]) => (
-                      <div className="key-value" key={key}>
-                        <div className="key">{key}</div>
-                        <div className="value">{value}</div>
-                      </div>
-                    )
-                  )}
-                {/* {keyValue("Duration", "1hr")}
-                
-                {keyValue("Price", "1000")}
-                {keyValue("Location", "Sahara Amusement")}
-                {keyValue("Contact", "1234567890")}
-                {keyValue("Contact", "1234567890")} */}
-
-               <div className="button_class">
-               <a href="#" className="btn">
-                  Book Now
-                </a>
-               </div>
+                  Object.entries(activityData.additionalInfo).map(([key, value]) => (
+                    <div className="key-value" key={key}>
+                      <div className="key">{key}</div>
+                      <div className="value">{value}</div>
+                    </div>
+                  ))}
+                <div className="button_class">
+                  <a href="#" className="btn">
+                    Book Now
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -110,25 +85,21 @@ const Page = () => {
                     Plan Your <span>Visit</span>
                   </h2>
                   <div className="faq-box-container">
-                    <div className="faq-box-container">
-                      {testimonialData.map((item, index) => (
-                        <div
-                          className={`faq-box ${
-                            activeIndex === index ? "active" : ""
-                          }`}
-                          key={index}
-                          onClick={() => setActiveIndex(index)}
-                        >
-                          <div className="faq-ques">
-                            <h3> {item.question} </h3>
-                            <span>
-                              <IoIosArrowDown />
-                            </span>
-                          </div>
-                          <div className="faq-ans">{item.answer}</div>
+                    {testimonialData.map((item, index) => (
+                      <div
+                        className={`faq-box ${activeIndex === index ? "active" : ""}`}
+                        key={index}
+                        onClick={() => setActiveIndex(index)}
+                      >
+                        <div className="faq-ques">
+                          <h3> {item.question} </h3>
+                          <span>
+                            <IoIosArrowDown />
+                          </span>
                         </div>
-                      ))}
-                    </div>
+                        <div className="faq-ans">{item.answer}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -140,5 +111,12 @@ const Page = () => {
     </>
   );
 };
+
+// ✅ Wrap in Suspense for Next.js compatibility
+const Page = () => (
+  <Suspense fallback={<p>Loading activity...</p>}>
+    <ActivityPage />
+  </Suspense>
+);
 
 export default Page;

@@ -1,27 +1,21 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import "./contact.scss";
 import BlackBorder from "../(component)/border/BlackBorder";
 import GreyBorder from "../(component)/border/GreyBorder";
-import { FaLocationDot } from "react-icons/fa6";
-import { FaPhone } from "react-icons/fa6";
-import { IoMail } from "react-icons/io5";
-
-import { FaFacebookF } from "react-icons/fa6";
+import { FaLocationDot, FaPhone, FaFacebookF, FaXTwitter, FaTiktok } from "react-icons/fa6";
+import { IoMail, IoLogoYoutube } from "react-icons/io5";
 import { AiFillInstagram } from "react-icons/ai";
-import { FaXTwitter } from "react-icons/fa6";
-import { IoLogoYoutube } from "react-icons/io5";
-import { FaTiktok } from "react-icons/fa6";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import ThemeStore from "../(component)/store/Theme";
 import { toast, ToastContainer } from "react-toastify";
 
-const Page = () => {
-  const searchParams = useSearchParams(); 
+const ContactForm = () => {
+  const searchParams = useSearchParams();
   const id = searchParams?.get("activityid") || ""; 
-  const {isDarkMode} = ThemeStore();
+  const { isDarkMode } = ThemeStore();
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
@@ -30,7 +24,6 @@ const Page = () => {
     message: "",
   });
 
-
   useEffect(() => {
     setFormData((prev) => ({
       ...prev,
@@ -38,14 +31,15 @@ const Page = () => {
     }));
   }, [id]);
 
-
-  const handleSubmit = async (e)=>{
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
-
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/contact/addContact`,formData);
-      if(response.status === 200){
-        toast.success("Contact Send Successfully", {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/contact/addContact`,
+        formData
+      );
+      if (response.status === 200) {
+        toast.success("Contact Sent Successfully", {
           position: "top-center",
           autoClose: 500,
           hideProgressBar: false,
@@ -58,31 +52,80 @@ const Page = () => {
           activity: "",
           email: "",
           message: "",
-        })
-
-      }
-    } catch (error) {
-      if(error.status === 500){
-        toast.warning("Contact failed", {
-          position: "top-center",
-          autoClose: 500,
-          hideProgressBar: false,
-          closeOnClick: false,
-          theme: isDarkMode ? "dark" : "light",
         });
       }
+    } catch (error) {
+      toast.warning("Contact failed", {
+        position: "top-center",
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: false,
+        theme: isDarkMode ? "dark" : "light",
+      });
     }
-  }
+  };
 
   return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        <p>Your Name*</p>
+        <input
+          type="text"
+          required
+          value={formData.name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+        />
+      </label>
+      <div className="row">
+        <label>
+          <p>Your Phone*</p>
+          <input
+            type="number"
+            value={formData.phoneNumber}
+            onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+            required
+          />
+        </label>
+        <label>
+          <p>Activity*</p>
+          <input
+            type="text"
+            value={formData.activity}
+            onChange={(e) => setFormData({ ...formData, activity: e.target.value })}
+            required
+          />
+        </label>
+      </div>
+      <label>
+        <p>Your Email*</p>
+        <input
+          type="email"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          required
+        />
+      </label>
+      <label>
+        <p>Your Message</p>
+        <textarea
+          value={formData.message}
+          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+        />
+      </label>
+      <button className="btn" type="submit">Send</button>
+    </form>
+  );
+};
+
+const Page = () => {
+  return (
     <>
-    <ToastContainer />
+      <ToastContainer />
       <div className="contact1 parent">
         <div className="contact-container1 container">
           <h1>
             Let’s <span>Get in Touch!</span>
           </h1>
-
           <p>
             Have questions or ready to book your adventure? Reach out to us! Our
             team is here to help you plan the ultimate experience with Sahara
@@ -97,42 +140,29 @@ const Page = () => {
         <div className="contact-container2 container">
           <div className="left">
             <h2>We’re Here to Help!</h2>
-
             <p className="para">
               Whether you need details about our activities, want to book a
               session, or just have a question, we’re just a message away.
             </p>
             <div className="contact-details">
               <div className="icons-box">
-                <div className="icon">
-                  <FaLocationDot />
-                </div>
+                <div className="icon"><FaLocationDot /></div>
                 <div className="text">
-                  <p>
-                    <span>Address</span>
-                  </p>
+                  <p><span>Address</span></p>
                   <p>123 Main Street, City, Country</p>
                 </div>
               </div>
               <div className="icons-box">
-                <div className="icon">
-                  <FaPhone />
-                </div>
+                <div className="icon"><FaPhone /></div>
                 <div className="text">
-                  <p>
-                    <span>Email</span>
-                  </p>
+                  <p><span>Email</span></p>
                   <p>example@gmail.com</p>
                 </div>
               </div>
               <div className="icons-box">
-                <div className="icon">
-                  <IoMail />
-                </div>
+                <div className="icon"><IoMail /></div>
                 <div className="text">
-                  <p>
-                    <span>Phone</span>
-                  </p>
+                  <p><span>Phone</span></p>
                   <p>+971 1232143342</p>
                 </div>
               </div>
@@ -140,101 +170,17 @@ const Page = () => {
             <div className="line"></div>
 
             <div className="social">
-              <div className="icon">
-                <FaFacebookF />
-              </div>
-              <div className="icon">
-                <AiFillInstagram />
-              </div>
-              <div className="icon">
-                <FaXTwitter />
-              </div>
-              <div className="icon">
-                <IoLogoYoutube />
-              </div>
-              <div className="icon">
-                <FaTiktok />
-              </div>
+              <div className="icon"><FaFacebookF /></div>
+              <div className="icon"><AiFillInstagram /></div>
+              <div className="icon"><FaXTwitter /></div>
+              <div className="icon"><IoLogoYoutube /></div>
+              <div className="icon"><FaTiktok /></div>
             </div>
           </div>
           <div className="right">
-            <form  onSubmit={handleSubmit} >
-              <label>
-                <p>Your Name*</p>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                />
-                <p className="error">
-                  name can`t be empty or more than 50 char
-                </p>
-              </label>
-              <div className="row">
-                <label>
-                  <p>Your Phone*</p>
-                  <input
-                    type="number"
-                    value={formData.phoneNumber}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phoneNumber: e.target.value })
-                    }
-                    required
-                  />
-                  <p className="error">
-                    name can`t be empty or more than 50 char
-                  </p>
-                </label>
-                <label>
-                  <p>Activity*</p>
-                  <input
-                    type="text"
-                    value={formData.activity}
-                    onChange={(e) =>
-                      setFormData({ ...formData, activity: e.target.value })
-                    }
-                    required
-                  />
-                  <p className="error">
-                    name can`t be empty or more than 50 char
-                  </p>
-                </label>
-              </div>
-              <label>
-                <p>Your Email*</p>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                />
-                <p className="error">
-                  name can`t be empty or more than 50 char
-                </p>
-              </label>
-              <label>
-                <p>Your Message</p>
-                <textarea
-                  type="text"
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                />
-                <p className="error">
-                  name can`t be empty or more than 50 char
-                </p>
-              </label>
-
-              <button className="btn" type="submit">
-                Send
-              </button>
-            </form>
+            <Suspense fallback={<p>Loading form...</p>}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </div>

@@ -7,6 +7,13 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "./(component)/footer/Footer";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"], // Optimize for specific characters
+  weight: ["400", "700"], // Specify weights (400 = normal, 700 = bold)
+  display: "swap", // Improves performance
+});
 
 export default function RootLayout({ children }) {
   const { isDarkMode } = ThemeStore();
@@ -21,7 +28,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={isDarkMode ? "" : "light"} data-lenis>
+    
+   <body className={`${montserrat.className} ${isDarkMode ? "dark" : "light"}`} data-lenis>
+
         <Header />
         {children}
         <Footer />
