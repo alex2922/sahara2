@@ -136,7 +136,17 @@ background: url("../../../public/tyre_bike.gif");
       }
       .right{
         width: 100%;
+
+        h2{
+          width: 100%;
+          text-align: center
+        }
       
+        .button_class{
+          width: 100%;
+          display: flex;
+          place-content: center
+        }
       };
     }
   }

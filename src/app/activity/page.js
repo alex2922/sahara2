@@ -93,7 +93,7 @@ const Page = () => {
                 {keyValue("Contact", "1234567890")}
                 {keyValue("Contact", "1234567890")} */}
 
-               <div class="button_class">
+               <div className="button_class">
                <a href="#" className="btn">
                   Book Now
                 </a>
