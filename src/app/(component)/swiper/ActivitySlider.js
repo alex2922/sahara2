@@ -14,17 +14,17 @@ function ActivityCard(props) {
     <div className="card">
       <div
         className="imgbox"
-        style={{ backgroundImage: `url(${props.image})` }}
+        style={{ backgroundImage: `url(${props?.image})` }}
       ></div>
       <h2>
-        {props.title} <span> {props.title_highlight}</span>
+        {props?.title} <span> {props?.title_highlight}</span>
       </h2>
-      <p>{props.desc}</p>
+      <p>{props?.desc}</p>
       <div className="btns">
-        <a href={props.pagelink} className=" sndbtn">
+        <a href={props?.pagelink} className=" sndbtn">
           Learn More
         </a>
-        <a href={props.booklink} className=" fstbtn">
+        <a href={props?.booklink} className=" fstbtn">
           Book Now
         </a>
       </div>
@@ -89,11 +89,11 @@ function ActivitySlider() {
           {activityData.map((card, index) => (
             <SwiperSlide key={index}>
               <ActivityCard
-                title={card.data.title}
-                desc={card.data.description.slice(0,50)}
-                image={card.data.image}
-                pagelink={`/activity?activityid=${card.data.title}`}
-                booklink={`/contact?activityid=${card.data.title}`}
+                title={card?.data?.title}
+                desc={card?.data?.description.slice(0,50)}
+                image={card?.data?.image}
+                pagelink={`/activity?activityid=${card?.data?.title}`}
+                booklink={`/contact?activityid=${card?.data?.title}`}
 
                 
               />

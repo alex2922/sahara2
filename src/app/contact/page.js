@@ -14,18 +14,22 @@ import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoYoutube } from "react-icons/io5";
 import { FaTiktok } from "react-icons/fa6";
 import { useSearchParams } from "next/navigation";
+import axios from "axios";
+import ThemeStore from "../(component)/store/Theme";
+import { toast, ToastContainer } from "react-toastify";
 
 const page = () => {
   const searchParams = useSearchParams(); 
   const id = searchParams?.get("activityid") || ""; 
-
+  const {isDarkMode} = ThemeStore();
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
+    phoneNumber: "",
     activity: id,
     email: "",
     message: "",
   });
+
 
   useEffect(() => {
     setFormData((prev) => ({
@@ -33,8 +37,46 @@ const page = () => {
       activity: id, 
     }));
   }, [id]);
+
+
+  const handleSubmit = async (e)=>{
+    try {
+      e.preventDefault();
+
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/contact/addContact`,formData);
+      if(response.status === 200){
+        toast.success("Contact Send Successfully", {
+          position: "top-center",
+          autoClose: 500,
+          hideProgressBar: false,
+          closeOnClick: false,
+          theme: isDarkMode ? "dark" : "light",
+        });
+        setFormData({
+          name: "",
+          phoneNumber: "",
+          activity: "",
+          email: "",
+          message: "",
+        })
+
+      }
+    } catch (error) {
+      if(error.status === 500){
+        toast.warning("Contact failed", {
+          position: "top-center",
+          autoClose: 500,
+          hideProgressBar: false,
+          closeOnClick: false,
+          theme: isDarkMode ? "dark" : "light",
+        });
+      }
+    }
+  }
+
   return (
     <>
+    <ToastContainer />
       <div className="contact1 parent">
         <div className="contact-container1 container">
           <h1>
@@ -116,7 +158,7 @@ const page = () => {
             </div>
           </div>
           <div className="right">
-            <form>
+            <form  onSubmit={handleSubmit} >
               <label>
                 <p>Your Name*</p>
                 <input
@@ -136,9 +178,9 @@ const page = () => {
                   <p>Your Phone*</p>
                   <input
                     type="number"
-                    value={formData.name}
+                    value={formData.phoneNumber}
                     onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
+                      setFormData({ ...formData, phoneNumber: e.target.value })
                     }
                     required
                   />
@@ -150,9 +192,9 @@ const page = () => {
                   <p>Activity*</p>
                   <input
                     type="text"
-                    value={formData.name}
+                    value={formData.activity}
                     onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
+                      setFormData({ ...formData, activity: e.target.value })
                     }
                     required
                   />
@@ -165,9 +207,9 @@ const page = () => {
                 <p>Your Email*</p>
                 <input
                   type="email"
-                  value={formData.name}
+                  value={formData.email}
                   onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
+                    setFormData({ ...formData, email: e.target.value })
                   }
                   required
                 />
@@ -179,9 +221,9 @@ const page = () => {
                 <p>Your Message</p>
                 <textarea
                   type="text"
-                  value={formData.name}
+                  value={formData.message}
                   onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
+                    setFormData({ ...formData, message: e.target.value })
                   }
                 />
                 <p className="error">
