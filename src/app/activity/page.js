@@ -60,7 +60,7 @@ const page = () => {
     <>
       {activityData && testimonialData &&
         <>
-          <div className="page-top parent">
+          <div className="page-top parent"  style={{ backgroundImage: `url(${activityData.coverImage})` }}>
             <h1>{activityData.title}</h1>
           </div>
           <div className="parent activitymain">
@@ -70,7 +70,7 @@ const page = () => {
               </div>
 
               <div className="right">
-                <h2>{activityData.title}</h2>
+                <h2 style={{textTransform: "capitalize"}}>{activityData.title}</h2>
 
                 {activityData.additionalInfo &&
                   Object.entries(activityData.additionalInfo).map(([key, value]) => (
