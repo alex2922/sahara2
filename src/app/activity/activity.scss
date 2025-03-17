@@ -87,6 +87,7 @@
         width: 100%;
         border-bottom: 1px solid var(--grey);
         padding: 5px;
+        text-transform: capitalize;
         gap: 0px;
         &:last-child {
           border-bottom: none;
