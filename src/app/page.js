@@ -18,19 +18,20 @@ export default function Home() {
       <GreyBorder margin={"-100px"} />
 
       <div id="activities">
-      <Activity />
+        <Activity />
       </div>
       <BlackBorder flip={true} margin={"-96px"} />
 
- <div id="testimonial">
- <Testimonial />
- </div>
+      <div id="testimonial">
+        <Testimonial />
+      </div>
       <GreyBorder margin={"-100px"} />
 
-   <div id="faq">
-   <FAQ />
-   </div>
+      <div id="faq">
+        <FAQ />
+      </div>
       <BlackBorder flip={true} margin={"-96px"} />
+      
     </>
   );
 }
