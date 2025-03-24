@@ -11,6 +11,7 @@ import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import ThemeStore from "../(component)/store/Theme";
 import { toast, ToastContainer } from "react-toastify";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 const ContactForm = () => {
   const searchParams = useSearchParams();
@@ -175,6 +176,7 @@ const Page = () => {
               <div className="icon"><FaXTwitter /></div>
               <div className="icon"><IoLogoYoutube /></div>
               <div className="icon"><FaTiktok /></div>
+              <div className="icon"><IoLogoWhatsapp /></div> 
             </div>
           </div>
           <div className="right">
