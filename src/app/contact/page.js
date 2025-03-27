@@ -206,29 +206,23 @@ const Page = () => {
             <div className="line"></div>
 
             <div className="social">
-              <div className="icon">
-                <a
-                  href="https://m.facebook.com/Saharaamusementofficial/"
-                  target="_blank"
-                >
-                  <FaFacebookF />
-                </a>
-              </div>
-              <div className="icon">
-                <a
-                  href="https://www.instagram.com/saharaamusementofficial?igsh=MTB4cjh5OGZ4ZGtxYg=="
-                  target="_blank"
-                >
-                  {" "}
-                  <AiFillInstagram />
-                </a>
-              </div>
-              <div className="icon">
-                <a href="tel:+971565776001" target="_blank">
-                  {" "}
-                  <IoLogoWhatsapp />
-                </a>
-              </div>
+              <a
+                className="icon"
+                href="https://m.facebook.com/Saharaamusementofficial/"
+                target="_blank"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                className="icon"
+                href="https://www.instagram.com/saharaamusementofficial?igsh=MTB4cjh5OGZ4ZGtxYg=="
+                target="_blank"
+              >
+                <AiFillInstagram />
+              </a>
+              <a className="icon" href="tel:+971565776001" target="_blank">
+                <IoLogoWhatsapp />
+              </a>
             </div>
           </div>
           <div className="right">
