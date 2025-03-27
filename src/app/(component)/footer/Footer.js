@@ -23,11 +23,9 @@ const Footer = () => {
             <h3>Social Media Links</h3>
 
             <div className="links">
-              <Link href="/">Facebook</Link>
-              <Link href="/">Instagram</Link>
-              <Link href="/">Twitter</Link>
-              <Link href="/">YouTube</Link>
-              <Link href="/">TikTok</Link>
+              <a href="https://m.facebook.com/Saharaamusementofficial/" target="_blank">Facebook</a>
+              <a href="https://www.instagram.com/saharaamusementofficial?igsh=MTB4cjh5OGZ4ZGtxYg==" target="_blank">Instagram</a>
+              <a href="tel:+971565776001" target="_blank">WhatsApp</a>
             </div>
           </div>
 
@@ -44,12 +42,11 @@ const Footer = () => {
             <h3>Contacts</h3>
 
             <div className="links">
-              <Link href="/">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet,
-                earum.
-              </Link>
-              <a href="mailto:test@gmail.com" target="_blank">test@gmail.com</a>
-              <a href="tel:+971123456789">123456789</a>
+              <a href="https://maps.app.goo.gl/JYnP62LWWdzxMKPC6" target="_blank">
+                E44-Dubai-Hatta Road, AI Badayer-Sharjah, U.A.E
+              </a>
+              <a href="mailto:info@saharaamusement.com" target="_blank">info@saharaamusement.com</a>
+              <a href="tel:+971565776001" target="_blank">+971 565776001</a>
             </div>
           </div>
         </div>

@@ -4,7 +4,13 @@ import React, { useEffect, useState, Suspense } from "react";
 import "./contact.scss";
 import BlackBorder from "../(component)/border/BlackBorder";
 import GreyBorder from "../(component)/border/GreyBorder";
-import { FaLocationDot, FaPhone, FaFacebookF, FaXTwitter, FaTiktok } from "react-icons/fa6";
+import {
+  FaLocationDot,
+  FaPhone,
+  FaFacebookF,
+  FaXTwitter,
+  FaTiktok,
+} from "react-icons/fa6";
 import { IoMail, IoLogoYoutube } from "react-icons/io5";
 import { AiFillInstagram } from "react-icons/ai";
 import { useSearchParams } from "next/navigation";
@@ -15,7 +21,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 
 const ContactForm = () => {
   const searchParams = useSearchParams();
-  const id = searchParams?.get("activityid") || ""; 
+  const id = searchParams?.get("activityid") || "";
   const { isDarkMode } = ThemeStore();
   const [formData, setFormData] = useState({
     name: "",
@@ -28,7 +34,7 @@ const ContactForm = () => {
   useEffect(() => {
     setFormData((prev) => ({
       ...prev,
-      activity: id, 
+      activity: id,
     }));
   }, [id]);
 
@@ -83,7 +89,9 @@ const ContactForm = () => {
           <input
             type="number"
             value={formData.phoneNumber}
-            onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, phoneNumber: e.target.value })
+            }
             required
           />
         </label>
@@ -92,7 +100,9 @@ const ContactForm = () => {
           <input
             type="text"
             value={formData.activity}
-            onChange={(e) => setFormData({ ...formData, activity: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, activity: e.target.value })
+            }
             required
           />
         </label>
@@ -110,10 +120,14 @@ const ContactForm = () => {
         <p>Your Message</p>
         <textarea
           value={formData.message}
-          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, message: e.target.value })
+          }
         />
       </label>
-      <button className="btn" type="submit">Send</button>
+      <button className="btn" type="submit">
+        Send
+      </button>
     </form>
   );
 };
@@ -147,36 +161,74 @@ const Page = () => {
             </p>
             <div className="contact-details">
               <div className="icons-box">
-                <div className="icon"><FaLocationDot /></div>
+                <div className="icon">
+                  <FaLocationDot />
+                </div>
                 <div className="text">
-                  <p><span>Address</span></p>
-                  <p>123 Main Street, City, Country</p>
+                  <p>
+                    <span>Address</span>
+                  </p>
+                  <a
+                    href="https://maps.app.goo.gl/JYnP62LWWdzxMKPC6"
+                    target="_blank"
+                  >
+                    E44-Dubai-Hatta Road, AI Badayer-Sharjah, U.A.E
+                  </a>
                 </div>
               </div>
               <div className="icons-box">
-                <div className="icon"><FaPhone /></div>
+                <div className="icon">
+                  <FaPhone />
+                </div>
                 <div className="text">
-                  <p><span>Email</span></p>
-                  <p>example@gmail.com</p>
+                  <p>
+                    <span>Email</span>
+                  </p>
+                  <a href="mailto:info@saharaamusement.com" target="_blank">
+                    info@saharaamusement.com
+                  </a>
                 </div>
               </div>
               <div className="icons-box">
-                <div className="icon"><IoMail /></div>
+                <div className="icon">
+                  <IoMail />
+                </div>
                 <div className="text">
-                  <p><span>Phone</span></p>
-                  <p>+971 1232143342</p>
+                  <p>
+                    <span>Phone</span>
+                  </p>
+                  <a href="tel:+971565776001" target="_blank">
+                    +971 565776001
+                  </a>
                 </div>
               </div>
             </div>
             <div className="line"></div>
 
             <div className="social">
-              <div className="icon"><FaFacebookF /></div>
-              <div className="icon"><AiFillInstagram /></div>
-              <div className="icon"><FaXTwitter /></div>
-              <div className="icon"><IoLogoYoutube /></div>
-              <div className="icon"><FaTiktok /></div>
-              <div className="icon"><IoLogoWhatsapp /></div> 
+              <div className="icon">
+                <a
+                  href="https://m.facebook.com/Saharaamusementofficial/"
+                  target="_blank"
+                >
+                  <FaFacebookF />
+                </a>
+              </div>
+              <div className="icon">
+                <a
+                  href="https://www.instagram.com/saharaamusementofficial?igsh=MTB4cjh5OGZ4ZGtxYg=="
+                  target="_blank"
+                >
+                  {" "}
+                  <AiFillInstagram />
+                </a>
+              </div>
+              <div className="icon">
+                <a href="tel:+971565776001" target="_blank">
+                  {" "}
+                  <IoLogoWhatsapp />
+                </a>
+              </div>
             </div>
           </div>
           <div className="right">
