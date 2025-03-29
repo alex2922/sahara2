@@ -39,7 +39,7 @@ const Hero = () => {
           data-aos="fade-up"
           data-aos-delay="200"
           className="btn"
-          href="/contact"
+          href={heroData.buttonLink}
         >
           {heroData.buttonText}
         </Link> </div>
