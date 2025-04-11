@@ -178,8 +178,9 @@ const Page = () => {
               </div>
               <div className="icons-box">
                 <div className="icon">
-                  <FaPhone />
+                  <IoMail />
                 </div>
+
                 <div className="text">
                   <p>
                     <span>Email</span>
@@ -191,7 +192,7 @@ const Page = () => {
               </div>
               <div className="icons-box">
                 <div className="icon">
-                  <IoMail />
+                  <FaPhone />
                 </div>
                 <div className="text">
                   <p>
@@ -220,7 +221,7 @@ const Page = () => {
               >
                 <AiFillInstagram />
               </a>
-              <a className="icon" href="tel:+971565776001" target="_blank">
+              <a className="icon"   href="https://wa.me/971565776001" target="_blank">
                 <IoLogoWhatsapp />
               </a>
             </div>

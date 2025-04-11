@@ -18,13 +18,11 @@
   --black: #ffffff;
   --text: #3c3c3c;
   --text2: #c7c7c7;
-
 }
 
 html {
   scroll-behavior: smooth;
 }
-
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -37,13 +35,11 @@ html {
   font-family: "Montserrat", serif;
   font-size: 1rem;
   color: var(--text);
-
 }
 
 body {
   background: var(--black);
   overflow-x: hidden;
-
 }
 
 .parent {
@@ -108,7 +104,6 @@ a {
   cursor: pointer;
   transition: all 0.4s linear;
   padding: 0.85rem 1rem;
- ;
   color: var(--accent);
   font-size: 1.2rem;
   font-weight: 600;
@@ -118,11 +113,6 @@ a {
     // background: var(--accentDark);
   }
 }
-
-
-
-
-
 
 ::-moz-selection {
   color: white;
@@ -134,7 +124,6 @@ a {
   background: var(--accent);
 }
 
-
 .imghover {
   transition: var(--trans);
 
@@ -143,7 +132,33 @@ a {
   }
 }
 
-
 .swiper-pagination-bullet {
   background: var(--accentDark) !important;
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+
+  svg {
+    fill: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
