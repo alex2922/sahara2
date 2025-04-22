@@ -61,3 +61,11 @@
     }
   }
 }
+
+body > div.yarl__root.yarl__portal.yarl__no_scroll_padding.yarl__portal_open > div > div > div.yarl__thumbnails_wrapper > div > div.yarl__carousel.yarl__carousel_with_slides > div.yarl__slide.yarl__slide_current.yarl__flex_center > div.yarl__slide_captions_container.yarl__slide_title_container > div{
+  padding: 10px 50px !important;
+}
+
+body > div.yarl__root.yarl__portal.yarl__no_scroll_padding.yarl__portal_open > div > div > div.yarl__thumbnails_wrapper > div > div.yarl__carousel.yarl__carousel_with_slides > div.yarl__slide.yarl__slide_current.yarl__flex_center > div.yarl__slide_captions_container.yarl__slide_description_container > div{
+  padding: 10px 50px !important;
+}
