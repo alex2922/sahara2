@@ -73,7 +73,7 @@ function Gallery() {
     <>
       <div className="gallery-parent parent">
         <div className="container gallery-container">
-          <h2>Gallery</h2>
+          <h2>Our <span>Gallery</span></h2>
           <div className="wrapper">
             {data.map((item, index) => (
               <div
@@ -98,7 +98,7 @@ function Gallery() {
           />
 
           <Link href={"/all_gallery"} className="btn">
-            Load More
+            View All
           </Link>
         </div>
       </div>
