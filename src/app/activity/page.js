@@ -11,7 +11,6 @@ import { getActivityByTitle, getFaqByPage } from "../(api)/apis";
 import Link from "next/link";
 import ThemeStore from "../(component)/store/Theme";
 
-
 const ActivityPage = () => {
   const { isDarkMode } = ThemeStore();
 
@@ -37,7 +36,6 @@ const ActivityPage = () => {
       setTestimonialData(data.data);
       setIsLoading(false);
     });
-
   }, [searchParams]);
 
   if (isLoading) return <p>Loading...</p>;
@@ -52,37 +50,46 @@ const ActivityPage = () => {
           >
             <h1>{activityData.title}</h1>
           </div>
-        <div id="animatedsection" className={isDarkMode ? "" : "light"}>
-        <div
-            className={id === "paintball" ? "parent activitymain paintBallBg" : "parent activitymain"}
-          >
-            <div className="container activitymain-container">
-              <div className="left">
-                <div
-                  className="img-box imghover"
-                  style={{ backgroundImage: `url(${activityData.image})` }}
-                ></div>
-              </div>
-              <div className="right">
-                <h2 style={{ textTransform: "capitalize" }}>
-                  {activityData.title}
-                </h2>
-                {activityData.additionalInfo &&
-                  Object.entries(activityData.additionalInfo).map(([key, value]) => (
-                    <div className="key-value" key={key}>
-                      <div className="key">{key}</div>
-                      <div className="value">{value}</div>
-                    </div>
-                  ))}
-                <div className="button_class">
-                  <a href={`/contact?activityid=${activityData.title}`} className="btn">
-                    Book Now
-                  </a>
+          <div id="animatedsection" className={isDarkMode ? "" : "light"}>
+            <div
+              className={
+                id === "paintball"
+                  ? "parent activitymain paintBallBg"
+                  : "parent activitymain"
+              }
+            >
+              <div className="container activitymain-container">
+                <div className="left">
+                  <div
+                    className="img-box imghover"
+                    style={{ backgroundImage: `url(${activityData.image})` }}
+                  ></div>
+                </div>
+                <div className="right">
+                  <h2 style={{ textTransform: "capitalize" }}>
+                    {activityData.title}
+                  </h2>
+                  {activityData.additionalInfo &&
+                    Object.entries(activityData.additionalInfo).map(
+                      ([key, value]) => (
+                        <div className="key-value" key={key}>
+                          <div className="key">{key}</div>
+                          <div className="value">{value}</div>
+                        </div>
+                      )
+                    )}
+                  <div className="button_class">
+                    <a
+                      href={`/contact?activityid=${activityData.title}`}
+                      className="btn"
+                    >
+                      Book Now
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
           <GreyBorder margin={"-100px"} />
           <div className="activityDescription parent">
             <div className="activityDescription-container container">
@@ -94,7 +101,9 @@ const ActivityPage = () => {
                   <div className="faq-box-container">
                     {testimonialData.map((item, index) => (
                       <div
-                        className={`faq-box ${activeIndex === index ? "active" : ""}`}
+                        className={`faq-box ${
+                          activeIndex === index ? "active" : ""
+                        }`}
                         key={index}
                         onClick={() => setActiveIndex(index)}
                       >

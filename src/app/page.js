@@ -1,5 +1,6 @@
 import BlackBorder from "./(component)/border/BlackBorder";
 import GreyBorder from "./(component)/border/GreyBorder";
+import Gallery from "./(component)/home/gallery/Gallery";
 import About from "./(component)/home/about/About";
 import Activity from "./(component)/home/activity/Activity";
 import FAQ from "./(component)/home/faq/FAQ";
@@ -11,25 +12,29 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <GreyBorder margin={"-96px"} />
+      <BlackBorder margin={"-96px"} />
       {/* <BlackBorder flip={true} margin={"-96px"} /> */}
       <div id="about">
         <About />
       </div>
 
-      <BlackBorder flip={true} margin={"-96px"} />
+      <GreyBorder flip={true} margin={"-96px"} />
 
       <div className="promo_activity">
-      <Promotional_activity />
+        <Promotional_activity />
       </div>
 
-
-      <GreyBorder margin={"-100px"} />
+      <BlackBorder margin={"-100px"} />
 
       <div id="activities">
         <Activity />
       </div>
-      
+
+      <GreyBorder margin={"-100px"} />
+      <div id="gallery">
+        <Gallery />
+      </div>
+
       <BlackBorder flip={true} margin={"-96px"} />
 
       <div id="testimonial">

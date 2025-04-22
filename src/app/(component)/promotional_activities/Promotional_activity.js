@@ -22,6 +22,7 @@ const Promotional_activity = () => {
         console.log(err);
       });
   }, []);
+  
   return (
     <>
       <div className="promo_acitvity_parent parent">
@@ -46,31 +47,39 @@ const Promotional_activity = () => {
               modules={[Autoplay, Pagination, Navigation]}
               className="promoSwiper"
             >
-          {data.map((item, index) => (
-  <SwiperSlide className="swiper-slide" key={index}>
-    <div
-      className="content_section"
-      style={{
-        backgroundImage: `url(${item.data.image})`, // Fixed syntax
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="overlay" onClick={() => setKnowMore(false)}></div>
+              {data.map((item, index) => (
+                <SwiperSlide className="swiper-slide" key={index}>
+                  <div
+                    className="content_section"
+                    style={{
+                      backgroundImage: `url(${item.data.image})`, // Fixed syntax
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  >
+                    <div
+                      className="overlay"
+                      onClick={() => setKnowMore(false)}
+                    ></div>
 
-      <div className={knowMore ? "content active" : "content"}>
-        <h2 className="">{item.data.title}</h2>
-        <p className={knowMore ? "details active" : "details"}>{item.data.description}</p>
-      </div>
+                    <div className={knowMore ? "content active" : "content"}>
+                      <h2 className="">{item.data.title}</h2>
+                      <p className={knowMore ? "details active" : "details"}>
+                        {item.data.description}
+                      </p>
+                    </div>
 
-      <div className="btn" id="know_more" onClick={() => setKnowMore(true)}>
-        Know More
-      </div>
-    </div>
-  </SwiperSlide>
-))}
-
+                    <div
+                      className="btn"
+                      id="know_more"
+                      onClick={() => setKnowMore(true)}
+                    >
+                      Know More
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>

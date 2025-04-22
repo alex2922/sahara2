@@ -21,6 +21,7 @@
     "react-toastify": "^11.0.5",
     "sass": "^1.85.0",
     "swiper": "^11.2.4",
+    "yet-another-react-lightbox": "^3.22.0",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
