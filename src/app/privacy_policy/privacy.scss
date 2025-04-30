@@ -29,5 +29,10 @@
             padding:10px 0px 5px 0px;
             list-style-type: none;
         }
+        p{
+          a{
+            color:var(--accent);
+          }
+        }
     }
 }

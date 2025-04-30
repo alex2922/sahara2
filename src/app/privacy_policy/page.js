@@ -111,6 +111,22 @@ const page = () => {
             encourage you to review this page regularly for updates. Continued
             use of our website constitutes acceptance of these changes.
           </p>
+          <br></br><br></br>
+
+          <h1>Term And Conditions</h1>
+          <br></br>
+          <p>
+            Waiver form English:{" "}
+            <a href="/english.pdf" target="_blank" rel="noopener noreferrer">
+              Click Here...
+            </a>
+          </p>
+          <p>
+            Waiver form Arabic:{" "}
+            <a href="/arabic.pdf" target="_blank" rel="noopener noreferrer">
+              Click Here...
+            </a>
+          </p>
         </div>
       </div>
       <BlackBorder flip={true} margin={"-96px"} />

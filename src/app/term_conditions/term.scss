@@ -8,11 +8,16 @@
     gap: 20px;
     align-items: center;
     justify-content: center;
-
+  
     h1 {
       width: 100% !important;
       text-align: center;
       font-size: 2.5rem;
+    }
+    p{
+      a{
+        color:var(--accent);
+      }
     }
   }
 }
@@ -23,10 +28,19 @@
   .term-container1 {
     display: flex;
     flex-direction: column;
-    padding: 50px 20px 100PX 20PX;
-    ul li {
-      padding: 10px 0px 5px 0px;
-      list-style-type: none;
+
+    padding: 20px 20px 100px 20px;
+
+    width:100%;
+  
+    // ul li {
+    //   padding: 10px 0px 5px 0px;
+    //   list-style-type: none;
+    // }
+    p{
+      a{
+        color:var(--accent);
+      }
     }
   }
 }
