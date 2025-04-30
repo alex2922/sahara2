@@ -20,7 +20,7 @@ const page = () => {
           </p>
           <br></br>
           <h2>1. Introduction</h2>
-          <p>{`Welcome to [Your Website Name] ("we," "our," or "us"). We are committed to protecting your privacy and ensuring your personal information is handled securely. This Privacy Policy outlines how we collect, use, and protect your data.`}</p>
+          <p>{`Welcome to Sahara Amusement ("we," "our," or "us"). We are committed to protecting your privacy and ensuring your personal information is handled securely. This Privacy Policy outlines how we collect, use, and protect your data.`}</p>
           <br></br>
           <h2>2. Information We Collect</h2>
           <ul>
@@ -99,10 +99,10 @@ const page = () => {
             please contact us at:
           </p>
           <p>
-            <a href="#">0909090909</a>
+            <a href="tel:1565776001">+971565776001</a>
           </p>
           <p>
-            <a href="#">test@gmail.com</a>
+            <a href="mailto:info@saharaamusement.com"> info@saharaamusement.com</a>
           </p>
           <br></br>
           <h2>9. Changes to This Privacy Policy</h2>
