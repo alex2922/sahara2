@@ -4,7 +4,8 @@ import "./Header.scss";
 import Theme from "../store/Theme";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/../public/logos/saharaAmusement.svg";
+import logo from "@/../public/sahara_logo.png";
+
 import {
   ChevronDown,
   Facebook,
@@ -144,11 +145,7 @@ const Header = () => {
           }
         >
           <Link href="/" className="logo">
-            <Image src={logo} alt="Sahara Amusement Logo" />
-            <h2>
-              Sahara
-              <br /> Amusement
-            </h2>
+            <Image src={logo}  alt="Sahara Amusement Logo" />
           </Link>
           <div className="menu" onClick={handleMenu}>
             <Menu />
