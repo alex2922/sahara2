@@ -60,7 +60,7 @@ const Promotional_activity = () => {
                   >
                     <div
                       className="overlay"
-                      onClick={() => setKnowMore(false)}
+                      onClick={() => setKnowMore(true)}
                     ></div>
 
                     <div className={knowMore ? "content active" : "content"}>

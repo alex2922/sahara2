@@ -99,7 +99,7 @@ const page = () => {
             please contact us at:
           </p>
           <p>
-            <a href="tel:1565776001">+971565776001</a>
+            <a href="tel:+971565776001">+971565776001</a>
           </p>
           <p>
             <a href="mailto:info@saharaamusement.com"> info@saharaamusement.com</a>
