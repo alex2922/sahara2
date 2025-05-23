@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="links">
               <a href="https://m.facebook.com/Saharaamusementofficial/" target="_blank">Facebook</a>
               <a href="https://www.instagram.com/saharaamusementofficial?igsh=MTB4cjh5OGZ4ZGtxYg==" target="_blank">Instagram</a>
-              <a href="tel:+971565776001" target="_blank">WhatsApp</a>
+              <a href="https://wa.me/971565776001" target="_blank">WhatsApp</a>
             </div>
           </div>
 
@@ -35,7 +35,7 @@ const Footer = () => {
 
             <div className="links">
               <Link href="/privacy_policy">Privacy Policy</Link>
-              <Link href="/term_conditions">Terms & Conditions</Link>
+              {/* <Link href="/term_conditions">Terms & Conditions</Link> */}
             </div>
           </div>
 
